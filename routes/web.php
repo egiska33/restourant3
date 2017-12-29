@@ -18,8 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dishes', 'SimplePageController@dishIndex')->name('simpleDishes');
+Route::get('/reservation', 'ReservationController@index')->name('reservation.index');
 
 Route::group(['middleware'=> ['auth', 'admin'], 'prefix'=>'admin'], function (){
     Route::get('/', 'AdminController@index')->name('admin');
     Route::resource('/menu', 'MenuController');
+    Route::resource('/dish', 'DishController');
 });

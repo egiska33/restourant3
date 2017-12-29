@@ -60,7 +60,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('admin.menu.edit', compact('menu'));
     }
 
     /**
@@ -70,9 +70,12 @@ class MenuController extends Controller
      * @param  \App\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Menu $menu)
+    public function update(StoreMenuRequest $request, Menu $menu)
     {
-        //
+        Menu::findorfail($menu->id)->update($request->all());
+
+        return redirect()->route('menu.index')->with(['message' => 'Menu update successfully']);
+
     }
 
     /**
@@ -83,6 +86,12 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        if($menu->dishes->count()==0){
+            $menu->delete();
+            return redirect()->route('menu.index')->with(['message' => 'Menu deleted successfully']);
+        }else {
+            return redirect()->back()->with(['message' =>'Can not delete menu, because menu have dishes']);
+        }
+
     }
 }

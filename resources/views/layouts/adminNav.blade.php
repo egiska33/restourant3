@@ -25,7 +25,7 @@
                 <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" target="_blank">Visit Site</a></li>
+                <li><a href="{{route('home')}}" target="_blank">Visit Site</a></li>
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }}
@@ -64,14 +64,14 @@
                     <!-- Main Menu -->
                     <div class="side-menu-container">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-plane"></span> Menu</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Dish</a></li>
+                            <li class="active"><a href="{{route('admin')}}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                            <li><a href="{{route('menu.index')}}"><span class="glyphicon glyphicon-plane"></span> Menu</a></li>
+                            <li><a href="{{route('dish.index')}}"><span class="glyphicon glyphicon-cloud"></span> Dish</a></li>
 
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-lvl1">
-                                    <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span>
                                 </a>
 
                                 <!-- Dropdown level 1 -->

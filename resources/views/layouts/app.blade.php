@@ -36,7 +36,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        &nbsp;<li><a href="{{route('simpleDishes')}}">Dish</a></li>
+                        <li><a href="{{route('reservation.index')}}">Reservation</a></li>
+                        <li><a href="">Contact</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -52,6 +54,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @if(Auth::user()->admin)
+                                        <li><a href="{{route('admin')}}">Admin page</a></li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
